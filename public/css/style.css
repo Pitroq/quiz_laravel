@@ -1,0 +1,43 @@
+.content {
+    background-color: #6E7DAB;
+    overflow: auto;
+    height: 1000px;
+}
+
+.navbar {
+    background-color: #32292F;
+    padding: 15px !important; 
+}
+
+.navbar-brand {
+    color: white;
+    padding-left: 0 !important;
+} 
+
+.nav-link {
+    width: fit-content;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.nav-link:hover {
+    color: white;
+    transition: all .4s;
+}
+
+.navbar-nav > .active {
+    color: white !important;
+    border-bottom: solid white 5px;
+    /* box-sizing: border-box; */
+}
+
+.header-text {
+    font-size: 80px;
+} 
+
+footer {
+    background-color: #32292F;
+    color: rgba(255, 255, 255, 0.55);
+}  
+.navbar-collapse {
+    transition: all .3s;
+}
