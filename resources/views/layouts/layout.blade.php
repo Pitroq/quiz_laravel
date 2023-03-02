@@ -12,16 +12,19 @@
     <div id="app" class="fw-semibold">
         <nav class="navbar navbar-dark navbar-expand-lg">
             <div class="container-fluid h-100">
-                <a class="navbar-brand fs-3">Template</a>
+                <a class="navbar-brand fs-3">Quiz</a>
                 <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarItemsContainer">
                     <span class="navbar-toggler-icon"></span>
                 </button> 
                 <div class="collapse navbar-collapse h-100" id="navbarItemsContainer">
                     <div class="navbar-nav ms-auto h-100">
-                        <a class="nav-link fs-4 mx-3 h-100 active" href="./">Home</a>
-                        <a class="nav-link fs-4 mx-3 h-100" href="/quiz">Quiz</a>
-                        <a class="nav-link fs-4 mx-3 h-100" href="#">One question</a>
-                        <a class="nav-link fs-4 mx-3 h-100" href="#">Ranking</a>
+                        <a class="nav-link fs-4 mx-3 h-100 {{ Request::is('/') ? 'active' : '' }}" href="./">Home</a>
+                        <a class="nav-link fs-4 mx-3 h-100 {{ Request::is('quiz') ? 'active' : '' }}" href="/quiz">Quiz</a>
+                        <a class="nav-link fs-4 mx-3 h-100 {{ Request::is('one_question') ? 'active' : '' }}" href="/one_question">One question</a>
+                        <a class="nav-link fs-4 mx-3 h-100 {{ Request::is('ranking') ? 'active' : '' }}" href="/ranking">Ranking</a>
+
+                        <!-- <a class="nav-link fs-4 mx-3 h-100 active" href="./">Home</a> -->
+
                     </div>
                 </div>
             </div>

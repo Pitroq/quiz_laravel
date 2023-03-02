@@ -1,7 +1,7 @@
 .content {
     background-color: #6E7DAB;
     overflow: auto;
-    height: 1000px;
+    min-height: 800px;
 }
 
 .navbar {
@@ -41,3 +41,22 @@ footer {
 .navbar-collapse {
     transition: all .3s;
 }
+
+.btn-primary {
+    background-color: #32292F !important;
+    border-color: #32292F !important;
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #2b2429 !important;
+    color: white !important;
+    border-color: #2b2429;
+
+}
+.home-info {
+    background-color: #2b2429 !important;
+    color: white !important;
+}
+/* .home-info {
+    background-color: rgb(255, 254, 248) !important;
+} */
