@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuizController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home', ['viewName' => 'home']);
-});
+Route::get('/', [QuizController::class, 'home']);
 
-Route::get('/quiz', function () {
-    return view('quiz', ['viewName' => 'quiz']);
-});
+Route::get('/quiz', [QuizController::class, 'quiz'])->name('quiz.quiz');
+Route::get('/one_question', [QuizController::class, 'one_question'])->name('quiz.one_question');
+Route::post('/result', [QuizController::class, 'result'])->name('quiz.result');
 
 ?>

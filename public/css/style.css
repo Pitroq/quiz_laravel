@@ -1,7 +1,7 @@
 .content {
     background-color: #6E7DAB;
     overflow: auto;
-    min-height: 800px;
+    /* height: 90vh; */
 }
 
 .navbar {
@@ -43,20 +43,31 @@ footer {
 }
 
 .btn-primary {
-    background-color: #32292F !important;
-    border-color: #32292F !important;
+    background-color: #6E7DAB !important;
+    border-color: #6E7DAB !important;
     color: white;
 }
 .btn-primary:hover {
-    background-color: #2b2429 !important;
+    background-color: #5d6a8c !important;
     color: white !important;
     border-color: #2b2429;
 
 }
-.home-info {
+.home-info, .question-box {
     background-color: #2b2429 !important;
     color: white !important;
 }
-/* .home-info {
-    background-color: rgb(255, 254, 248) !important;
-} */
+
+.question-answer {
+    font-size: 25px;
+    display: flex;
+  align-items: center
+}
+
+.question-answer input[type="radio"] {
+    transform: scale(1.4);
+}
+
+.question-answer label {
+    min-width: 100px;
+}
