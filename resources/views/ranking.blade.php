@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- <p class="header-text text-center mt-4">Quiz</p> -->
-<div class="container p-5">
+<div class="container p-5 my-5">
     <table class="table table-bordered fs-4">
         <thead>
             <tr>
