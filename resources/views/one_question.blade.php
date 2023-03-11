@@ -1,10 +1,10 @@
 @extends('layouts.layout')
 
 @section('content')
-<p class="header-text text-center mt-4">One Question</p>
+<!-- <p class="header-text text-center mt-4">One Question</p> -->
 <form action="/result" method="POST"> 
 @csrf
-    <div class="container p-4 my-4">
+    <div class="container p-5 my-5">
         <div class="row question-box p-5 rounded-3 border border-dark shadow-lg">
             <div class="col">
                 <h1 class="fw-bold px-4 py-3">{{ $question['question'] }}</h1>

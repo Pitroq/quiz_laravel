@@ -16,8 +16,8 @@
                 <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarItemsContainer">
                     <span class="navbar-toggler-icon"></span>
                 </button> 
-                <div class="collapse navbar-collapse h-100" id="navbarItemsContainer">
-                    <div class="navbar-nav ms-auto h-100">
+                <div class="collapse navbar-collapse" id="navbarItemsContainer">
+                    <div class="navbar-nav ms-auto">
                         <a class="nav-link fs-4 mx-3 h-100 {{ Request::is('/') ? 'active' : '' }}" href="./">Home</a>
                         <a class="nav-link fs-4 mx-3 h-100 {{ Request::is('quiz') ? 'active' : '' }}" href="/quiz">Quiz</a>
                         <a class="nav-link fs-4 mx-3 h-100 {{ Request::is('one_question') ? 'active' : '' }}" href="/one_question">One question</a>

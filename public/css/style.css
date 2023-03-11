@@ -1,7 +1,7 @@
 .content {
     background-color: #6E7DAB;
     overflow: auto;
-    /* height: 90vh; */
+    min-height: 800px;   
 }
 
 .navbar {
