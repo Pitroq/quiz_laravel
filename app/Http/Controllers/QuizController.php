@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Redirect;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Models\Question;
+use App\Models\Result;
 
 class QuizController extends Controller {
-    private $questionCount = 5;
+    private $questionsCount = 10;
 
     private function shuffleArray($array) {
         for ($i = 0; $i < count($array); $i++){
@@ -25,7 +27,7 @@ class QuizController extends Controller {
     }
 
     public function quiz() {
-        $questions = Question::inRandomOrder()->limit($this->questionCount)->get();
+        $questions = Question::inRandomOrder()->limit($this->questionsCount)->get();
         foreach($questions as $question) {
             $answers = $this->shuffleArray([$question['answer_a'], $question['answer_b'], $question['answer_c'], $question['answer_d']]);
 
@@ -48,35 +50,56 @@ class QuizController extends Controller {
         ]);
     }
 
-    public function result(Request $request) {
-        $correctAnswers = array();
-        $userAnswers = array();
-        $questionList = array();
-        $score = 0;
+    public function result($questions = array(), $score = 0) {
+        if (empty($questions)) return redirect("/");
+        
+        return view('result', [
+            'questions' => $questions,
+            'score' => $score,
+            'questionsCount' => $this->questionsCount
+        ]);
 
+    }
+
+    public function insert(Request $request) {
+        $questions = array();
+        $score = 0;
         foreach ($request->all() as $key => $userAnswer) {
             if (str_contains($key, 'question_')) {
-                array_push($userAnswers, $userAnswer); // user
-
-                $question = Question::findOrFail(substr($key, -1));
-                array_push($questionList, $question['question']); // que
-
+                $question = Question::findOrFail(str_replace("question_", "", $key));
+                
                 $correctAnswer = $question["answer_{$question['correct_answer']}"];
-                array_push($correctAnswers, $correctAnswer); // correct
-
                 
                 if ($userAnswer == $correctAnswer) {
                     $score += 1;
                 }
+
+
+                array_push($questions, [
+                    'userAnswer' => $userAnswer,
+                    'question' => $question['question'],
+                    'correctAnswer' => $correctAnswer,
+                ]);
+
             }
         }
 
-        return view('result',[
-            'userAnswers' => $userAnswers,
-            'correctAnswers' => $correctAnswers,
-            'questionList' => $questionList,
-            'score' => $score
-        ]);
+        if (null !== $request->get('username')) {
+            $result = new Result();
+            $result->username = $request->get('username');
+            $result->score = $score;
+            $result->max_score = $this->questionsCount;
+            $result->save();
+        }
+
+        return $this->result($questions, $score);
+
+    }
+
+    public function ranking() {
+        $ranking = Result::orderByDesc('score')->get();
+
+        return view('ranking', ['ranking' => $ranking]);
     }
 }
 

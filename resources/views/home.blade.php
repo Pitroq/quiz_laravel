@@ -13,7 +13,7 @@
                 </p>
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-                <a href="quiz" type="button" class="btn btn-primary btn-lg px-4 me-2">Take a quiz</a>
+                <a href="quiz" type="button" class="btn my-btn-primary btn-lg px-4">Take a quiz</a>
                 <a href="ranking" type="button" class="btn btn-outline-light btn-lg px-4">Show ranking</a>
             </div>
         </div>

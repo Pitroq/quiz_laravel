@@ -42,12 +42,12 @@ footer {
     transition: all .3s;
 }
 
-.btn-primary {
+.my-btn-primary {
     background-color: #6E7DAB !important;
     border-color: #6E7DAB !important;
     color: white;
 }
-.btn-primary:hover {
+.my-btn-primary:hover {
     background-color: #5d6a8c !important;
     color: white !important;
     border-color: #2b2429;
@@ -70,4 +70,15 @@ footer {
 
 .question-answer label {
     min-width: 100px;
+}
+.btn-submit {
+    background-color: #32292F !important;
+    border-color: #32292F !important;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 1.75rem !important;
+}
+.btn-submit:hover {
+    background-color: #2a2227 !important;
+    border-color: #2a2227 !important;
+    color: rgba(255, 255, 255, 0.55);
 }

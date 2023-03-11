@@ -17,8 +17,12 @@ use App\Http\Controllers\QuizController;
 
 Route::get('/', [QuizController::class, 'home']);
 
-Route::get('/quiz', [QuizController::class, 'quiz'])->name('quiz.quiz');
-Route::get('/one_question', [QuizController::class, 'one_question'])->name('quiz.one_question');
-Route::post('/result', [QuizController::class, 'result'])->name('quiz.result');
+Route::get('/quiz', [QuizController::class, 'quiz']);
+Route::get('/one_question', [QuizController::class, 'one_question']);
+Route::get('/ranking', [QuizController::class, 'ranking']);
+
+
+Route::get('/result', [QuizController::class, 'result'])->name("result");
+Route::post('/result', [QuizController::class, 'insert']);
 
 ?>
